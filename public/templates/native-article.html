@@ -1,11 +1,10 @@
-<article class="clearfix newsContainer">
+<article class="native-article native-bg clearfix newsContainer">
     <div data-adk-container="native-marking"></div>
-    <img %srcset% width="528" height="300">
+    <img width="528" height="300" %srcAttrs%>
     <h1 class="newsTitle">%headline%</h1>
-    <span class="smallNewsCategory">%advertiser%</span>
-    <p class="ingress" style="width:80%;">%lead%</p>
-    <div class="newsText">
-        %body%
-        <script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4d7558c1695a770f"></script>
+    <div class="advertiserWrapper">
+        <span class="smallNewsCategory">%advertiser%</span>
     </div>
+    <p class="ingress">%lead%</p>
+    <div class="newsText">%body%</div>
 </article>

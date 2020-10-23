@@ -1,8 +1,4 @@
 
-/* .native-advertiser {
-    text-transform: uppercase !important;
-} */
-
 .native-bg {
     background: #ecfafb;
 }
@@ -19,11 +15,34 @@
     padding: 0 10px;
 }
 
+.native-article img {
+    margin-bottom: 10px;
+}
+
+.native-article .newsTitle {
+    margin-bottom: 10px;
+    padding: 0 10px !important;
+}
+
+.native-article .advertiserWrapper {
+    padding: 0 10px !important;
+    margin-bottom: 15px;
+}
+
+.native-article .ingress {
+    padding: 0 10px !important;
+    line-height: 25px;
+}
+
+.native-article .newsText {
+    width: initial !important;
+    padding: 0 10px !important;
+}
+
 .native-article-marking {
     background: rgba(71, 210, 220);
     width: 100%;
     font-size: 11px;
-    padding: 0px 7px;
     vertical-align: middle;
     line-height: 30px;
     letter-spacing: 0.8px;
