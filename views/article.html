@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example - Article page</title>
+    <script>window.__ADK_PLATFORM_ROOT__ = 'local-advisible.com'</script>
+    <script>window.adk = window.adk || {cmd: []}</script>
+    <script async src="https://cdn.local-advisible.com/adk-1.1.5+.debug.js"></script>
+    <script async src="/scripts/article.js"></script>
+    <link rel="stylesheet" href="/styles/native.css">
+</head>
+<body>
+    <!-- Placeholder element for the native article -->
+    <div id="native-root"></div>
+
+    <!-- Get the article id from the URL and load the ad -->
+    <script>
+        adk.cmd.push(function() {
+            var advisibleID = '10121724'
+
+            adk.native.article({
+                aid: advisibleID,
+                itemId: window.location.pathname.split('/')[2],
+                elem: '#native-root',
+                replace: true,
+                template: 'native-article',
+                accept: {
+                    aspectRatio: 586 / 319,
+                },
+                onDone: function(native, err) {
+                    native && !err && (window.document.title = native.headline)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

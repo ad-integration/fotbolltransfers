@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example - Start page</title>
+
+    <!-- Loads Advisible Development Kit (ADK) -->
+    <script>window.__ADK_PLATFORM_ROOT__ = 'local-advisible.com'</script>
+    <script>window.adk = window.adk || {cmd: []}</script>
+    <script async src="https://cdn.local-advisible.com/adk-1.1.5+.debug.js"></script>
+
+    <!--
+        The ad setup for this page. Preferably asynchronously loaded in the
+        header like this but it can be put anywhere in the code.
+    -->
+    <script async src="/scripts/index.js"></script>
+
+    <!-- Put ad styling in a separate file like this or include it in the build -->
+    <link rel="stylesheet" href="/styles/native.css">
+</head>
+<body>
+    <!-- Native ad teaser containers, add them anywhere a teaser should be displayed -->
+    <div data-adk-container="native-teaser"></div>
+    <div data-adk-container="native-teaser"></div>
+    <div data-adk-container="native-teaser"></div>
+
+    <!--
+        This is what will make ADK attach to the containers and load ads.
+        If you want to insert containers dynamically, then this method should
+        be called again after insertion to activate the containers.
+        See documentation ADK/Basics for more details.
+    -->
+    <script>
+        adk.cmd.push(function() {
+            adk.attach()
+        })
+    </script>
+</body>
+</html>
