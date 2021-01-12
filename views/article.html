@@ -4,17 +4,13 @@
     <title>Example - Article page</title>
     <script>window.__ADK_PLATFORM_ROOT__ = 'local-advisible.com'</script>
     <script>window.adk = window.adk || {cmd: []}</script>
-    <script async src="https://cdn.local-advisible.com/adk-1.3.0.debug.js"></script>
+    <script async src="https://cdn.advisible.com/adk-1.4.0.js"></script>
     <script async src="/scripts/article.js"></script>
     <link rel="stylesheet" href="/styles/native.css">
-    <!-- <script async src="https://source.local-advisible.com/10121724/main.js"></script> -->
 </head>
 <body>
-    <!-- Placeholder element for the native article -->
-    <!-- <div id="native-root"></div> -->
-    <article class="native-article clearfix newsContainer"></article>
+    <div class="native-article"></div>
 
-    <!-- Get the article id from the URL and load the ad -->
     <script>
         adk.cmd.push(function() {
             adk.native.articleById({
@@ -22,20 +18,7 @@
                 itemId: window.location.pathname.split('/')[2],
                 elem: '.native-article',
                 template: 'native-article',
-                templateValues: {
-                    foo: 'bar',
-                },
-                imageAspectRatio: 528 / 300,
-                imageAspectRatioVariance: 0.1,
-                imageAllowFallback: true,
-                headlineMaxLength: 50,
-                // bodyPrefix: 'hej',
-                serverTimestamp: true,
-                // keyValues: {
-                //     foo: 'bar',
-                // },
                 onDone: function(native, elem, err) {
-                    console.log(native, elem)
                     adk.container.attach(elem)
                     native && !err && (window.document.title = native.headline)
                 }
