@@ -2,28 +2,41 @@
 <html>
 <head>
     <title>Example - Article page</title>
+    <script>window.__ADK_PLATFORM_ROOT__ = 'local-advisible.com'</script>
     <script>window.adk = window.adk || {cmd: []}</script>
-    <script async src="https://cdn.advisible.com/adk-1.1.6.js"></script>
+    <script async src="https://cdn.local-advisible.com/adk-1.3.0.debug.js"></script>
     <script async src="/scripts/article.js"></script>
     <link rel="stylesheet" href="/styles/native.css">
+    <!-- <script async src="https://source.local-advisible.com/10121724/main.js"></script> -->
 </head>
 <body>
     <!-- Placeholder element for the native article -->
-    <div id="native-root"></div>
+    <!-- <div id="native-root"></div> -->
+    <article class="native-article clearfix newsContainer"></article>
 
     <!-- Get the article id from the URL and load the ad -->
     <script>
         adk.cmd.push(function() {
-            adk.native.article({
-                aid: '10122709', // Advisible ID
+            adk.native.articleById({
+                aid: '10122804',
                 itemId: window.location.pathname.split('/')[2],
-                elem: '#native-root',
-                replace: true,
+                elem: '.native-article',
                 template: 'native-article',
-                accept: {
-                    aspectRatio: 528 / 300,
+                templateValues: {
+                    foo: 'bar',
                 },
-                onDone: function(native, err) {
+                imageAspectRatio: 528 / 300,
+                imageAspectRatioVariance: 0.1,
+                imageAllowFallback: true,
+                headlineMaxLength: 50,
+                // bodyPrefix: 'hej',
+                serverTimestamp: true,
+                // keyValues: {
+                //     foo: 'bar',
+                // },
+                onDone: function(native, elem, err) {
+                    console.log(native, elem)
+                    adk.container.attach(elem)
                     native && !err && (window.document.title = native.headline)
                 }
             })

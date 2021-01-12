@@ -1,20 +1,20 @@
 adk.cmd.push(function() {
 
     // Adds a tiny provider that injects the native marking
-    adk.addProvider('native-marking', {
+    adk.container.addProvider('native-marking', {
         load: function({elem}) {
             elem.innerHTML = '<div class="native-article-marking">HELA DENNA ARTIKEL ÄR EN ANNONS</div>'
         }
     })
 
-    adk.configure()
+    adk.config()
 
         // Load the article template
-        .template(adk.defineTemplate('native-article')
+        .addTemplate('native-article', adk.template.config()
             .url((window.PUBLIC_ROOT || '') + '/templates/native-article.html'))
 
         // Define a container for the sticky ad marking
-        .container(adk.defineContainer('native-marking')
+        .addContainer('native-marking', adk.container.config()
             .provider('native-marking')
             .fullWidth()
             .zIndex(1)
